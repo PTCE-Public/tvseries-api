@@ -38,7 +38,7 @@ The API contains the following 'routes' which produce the example output
 
 **Example**
 
-`https://mi2i2dospijuauxa.onion.to/show/tt1475582` returns the following:
+`https://<URL HERE>/show/tt1475582` returns the following:
 
 ```
 {
@@ -119,7 +119,7 @@ The API contains the following 'routes' which produce the example output
 
 **Example**
 
-`https://mi2i2dospijuauxa.onion.to/shows/1`
+`https://<URL HERE>/shows/1`
 
 ```
 [
