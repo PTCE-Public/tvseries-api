@@ -1,6 +1,7 @@
 var cluster = require('cluster')
   , app = require('express')()
-  , cpuCount = require('os').cpus().length;
+  , cpuCount = require('os').cpus().length
+  , fs = require('fs');
 
 // settings
 var config = require('./config.js');
@@ -25,6 +26,13 @@ if(cluster.isMaster) {
     if(config.master) {
         var domain = require('domain');
         var scope = domain.create();
+
+        var dir = config.tempDir;
+        if (fs.existsSync(dir)){
+            try {
+                fs.unlinkSync(dir + "/showsErrorLog.txt", function (){})
+            } catch (err){}
+        }
         
         scope.run(function() {
             var helpers = require('./lib/helpers');
