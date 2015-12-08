@@ -17,10 +17,10 @@ Setup MongoDB dirs
 `mkdir -p /data/db`
 
 Clone the repo
-`git clone https://github.com/P-T-C/popcorn-tvapi.git`
+`git clone https://popcorncouzx5cjn.onion.cab/PTCE/tvseries-api.git`
 
 Install dependencies
-`cd popcorn-tvapi`
+`cd tvseries-api`
 `npm install`
 
 Fire it up!
