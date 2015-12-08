@@ -17,7 +17,7 @@ Setup MongoDB dirs
 `mkdir -p /data/db`
 
 Clone the repo
-`git clone https://popcorncouzx5cjn.onion.cab/PTCE/tvseries-api.git`
+`git clone https://popcorncouzx5cjn.onion.to/PTCE/tvseries-api.git`
 
 Install dependencies
 `cd tvseries-api`
