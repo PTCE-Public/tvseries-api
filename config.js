@@ -2,7 +2,6 @@ module.exports = {
 	master: true,
 	port: 5000,
 	workers: 2,
-	lastRefresh: Math.floor((new Date).getTime()/1000),
 	scrapeTime: '00 00 */2 * * *',
 	scrapeTtl: 1000 * 60 * 60 * 10,
 	pageSize: 50,
@@ -31,7 +30,6 @@ module.exports = {
 		'power-2014': 'power',
 		'scandal-us': 'scandal-2012',
 		'reign': 'reign-2013',
-
 		'10-oclock-live': '10-o-clock-live',
 		'2010-vancouver-winter-olympics': 'vancouver-2010-olympic-winter-games-feature-presentation-1969',
 		'marvels-agent-carter': 'marvel-s-agent-carter',
