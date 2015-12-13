@@ -32,8 +32,11 @@ if(cluster.isMaster) {
             try {
                 fs.unlinkSync(dir + "/showsErrorLog.txt", function (){})
             } catch (err){}
-        }
-        
+        } else fs.mkdirSync(dir);
+
+        fs.writeFile(dir + '/lastUpdated.json', JSON.stringify({lastUpdated: Math.floor((new Date).getTime()/1000)}), function (err) {});
+        fs.writeFile(dir + '/status.json', JSON.stringify({status: 'Starting Up'}), function (err) {});
+
         scope.run(function() {
             var helpers = require('./lib/helpers');
             // Launch the eztv scraper
