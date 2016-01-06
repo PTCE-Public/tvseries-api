@@ -22,20 +22,20 @@ if(cluster.isMaster) {
         cluster.fork();
     });
 
+    var dir = config.tempDir;
+    if (fs.existsSync(dir)){
+        try {
+            fs.unlinkSync(dir + "/showsErrorLog.txt", function (){})
+        } catch (err){}
+    } else fs.mkdirSync(dir);
+
+    fs.writeFile(dir + '/lastUpdated.json', JSON.stringify({lastUpdated: Math.floor((new Date).getTime()/1000)}), function (err) {});
+    fs.writeFile(dir + '/status.json', JSON.stringify({status: 'Starting Up'}), function (err) {});
+
     // Is this the master API server? If so scrape
     if(config.master) {
         var domain = require('domain');
         var scope = domain.create();
-
-        var dir = config.tempDir;
-        if (fs.existsSync(dir)){
-            try {
-                fs.unlinkSync(dir + "/showsErrorLog.txt", function (){})
-            } catch (err){}
-        } else fs.mkdirSync(dir);
-
-        fs.writeFile(dir + '/lastUpdated.json', JSON.stringify({lastUpdated: Math.floor((new Date).getTime()/1000)}), function (err) {});
-        fs.writeFile(dir + '/status.json', JSON.stringify({status: 'Starting Up'}), function (err) {});
 
         scope.run(function() {
             var helpers = require('./lib/helpers');
